@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KinmuSampleDataModelStoreContainer" CdmEntityContainer="KinmuSampleDataEntities">
+    <EntitySetMapping Name="kinmu">
+      <EntityTypeMapping TypeName="KinmuSampleDataModel.kinmu">
+        <MappingFragment StoreEntitySet="kinmu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="kojin_id" ColumnName="kojin_id" />
+          <ScalarProperty Name="kinmu_jikan" ColumnName="kinmu_jikan" />
+          <ScalarProperty Name="husyuugyou_jikan" ColumnName="husyuugyou_jikan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="m_bumon">
+      <EntityTypeMapping TypeName="KinmuSampleDataModel.m_bumon">
+        <MappingFragment StoreEntitySet="m_bumon">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="bumon" ColumnName="bumon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="m_gamen">
+      <EntityTypeMapping TypeName="KinmuSampleDataModel.m_gamen">
+        <MappingFragment StoreEntitySet="m_gamen">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="company_code" ColumnName="company_code" />
+          <ScalarProperty Name="screen_code" ColumnName="screen_code" />
+          <ScalarProperty Name="item_code" ColumnName="item_code" />
+          <ScalarProperty Name="hyouji" ColumnName="hyouji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="m_kojin">
+      <EntityTypeMapping TypeName="KinmuSampleDataModel.m_kojin">
+        <MappingFragment StoreEntitySet="m_kojin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="bumon_id" ColumnName="bumon_id" />
+          <ScalarProperty Name="kojin_name" ColumnName="kojin_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

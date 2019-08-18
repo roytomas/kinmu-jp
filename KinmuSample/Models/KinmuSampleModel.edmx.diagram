@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ce557e2101424fe6882095b882140190" Name="Diagram1">
+        <EntityTypeShape EntityType="KinmuSampleDataModel.kinmu" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KinmuSampleDataModel.m_bumon" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KinmuSampleDataModel.m_gamen" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KinmuSampleDataModel.m_kojin" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="KinmuSampleDataModel.FK_dbo_kinmu_dbo_m_kojin_kojin_id" ManuallyRouted="false" />
+        <AssociationConnector Association="KinmuSampleDataModel.FK_dbo_m_kojin_dbo_m_bumon_id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

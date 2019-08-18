@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KinmuSampleDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="kinmu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kojin_id" Type="Int32" Nullable="false" />
+    <Property Name="kinmu_jikan" Type="Int32" Nullable="false" />
+    <Property Name="husyuugyou_jikan" Type="Int32" />
+    <NavigationProperty Name="m_kojin" Relationship="Self.FK_dbo_kinmu_dbo_m_kojin_kojin_id" FromRole="kinmu" ToRole="m_kojin" />
+  </EntityType>
+  <EntityType Name="m_bumon">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bumon" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="m_kojin" Relationship="Self.FK_dbo_m_kojin_dbo_m_bumon_id" FromRole="m_bumon" ToRole="m_kojin" />
+  </EntityType>
+  <EntityType Name="m_gamen">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company_code" Type="Int32" Nullable="false" />
+    <Property Name="screen_code" Type="Int32" Nullable="false" />
+    <Property Name="item_code" Type="Int32" Nullable="false" />
+    <Property Name="hyouji" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="m_kojin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bumon_id" Type="Int32" Nullable="false" />
+    <Property Name="kojin_name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="kinmu" Relationship="Self.FK_dbo_kinmu_dbo_m_kojin_kojin_id" FromRole="m_kojin" ToRole="kinmu" />
+    <NavigationProperty Name="m_bumon" Relationship="Self.FK_dbo_m_kojin_dbo_m_bumon_id" FromRole="m_kojin" ToRole="m_bumon" />
+  </EntityType>
+  <Association Name="FK_dbo_kinmu_dbo_m_kojin_kojin_id">
+    <End Role="m_kojin" Type="Self.m_kojin" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="kinmu" Type="Self.kinmu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="m_kojin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="kinmu">
+        <PropertyRef Name="kojin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_m_kojin_dbo_m_bumon_id">
+    <End Role="m_bumon" Type="Self.m_bumon" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="m_kojin" Type="Self.m_kojin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="m_bumon">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="m_kojin">
+        <PropertyRef Name="bumon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KinmuSampleDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="kinmu" EntityType="Self.kinmu" />
+    <EntitySet Name="m_bumon" EntityType="Self.m_bumon" />
+    <EntitySet Name="m_gamen" EntityType="Self.m_gamen" />
+    <EntitySet Name="m_kojin" EntityType="Self.m_kojin" />
+    <AssociationSet Name="FK_dbo_kinmu_dbo_m_kojin_kojin_id" Association="Self.FK_dbo_kinmu_dbo_m_kojin_kojin_id">
+      <End Role="m_kojin" EntitySet="m_kojin" />
+      <End Role="kinmu" EntitySet="kinmu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_m_kojin_dbo_m_bumon_id" Association="Self.FK_dbo_m_kojin_dbo_m_bumon_id">
+      <End Role="m_bumon" EntitySet="m_bumon" />
+      <End Role="m_kojin" EntitySet="m_kojin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

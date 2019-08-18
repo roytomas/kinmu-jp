@@ -1,0 +1,17 @@
+﻿@model IEnumerable<KinmuSample.Models.m_kojin>
+
+<tr>
+    <td>
+        <input type="radio" name="q1" value="氏名" disabled>氏名
+    </td>
+    <td>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <input class="controlbyradio" type="checkbox" name="kojin_name" value="@item.kojin_name" disabled/> @item.kojin_name
+                </li>
+            }
+        </ul>
+    </td>
+</tr>

@@ -1,0 +1,62 @@
+﻿@model KinmuSample.Areas.Shoukai.Models.ViewModels.KinmuShoukaiResult
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <h2>@Model.gamenString</h2>
+
+<table class="table table-bordered" style="table-layout:fixed;">
+    <tr>
+        @{string disst_1 = Regex.Match(Model.gamenString, @".,1;").Value;
+            if (disst_1 == "")
+            {
+                <th>氏名</th>
+            }
+            else if (disst_1.Substring(0, 1) == "0")
+            {
+                <th></th>
+            }
+            else if (disst_1.Substring(0, 1) == "1")
+            {
+            }
+        }
+        <th>
+            部門
+        </th>
+        <th>
+            就業時間
+        </th>
+        <th>
+            不就業時間
+        </th>
+    </tr>
+
+    @foreach (var item in Model.kinmuDatas)
+    {
+        <tr>
+            @if (disst_1 == "")
+            {
+                <td>@Html.DisplayFor(modelItem => item.kojin_name)</td>
+            }
+            else if (disst_1.Substring(0, 1) == "0")
+            {
+                <td></td>
+            }
+            else if (disst_1.Substring(0, 1) == "1")
+            {
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.bumon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kinmu_jikan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.husyuugyou_jikan)
+            </td>
+        </tr>
+    }
+
+
+</table>

@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "子画面メニュー";
+}
+
+<div>
+    <h1>@ViewBag.Title.</h1>
+</div>
+<div>
+    <p>@Html.ActionLink("個人選択", "Kojin", "Home")</p>
+    <p>@Html.ActionLink("部門選択", "Bumon", "Home")</p>
+    <p>@Html.ActionLink("勤務コード選択", "Kinmucode", "Home")</p>
+    <p>@Html.ActionLink("FS/No選択", "Fsno", "Home")</p>
+    <p>@Html.ActionLink("作業項目選択", "Personal", "Home")</p>
+    <p>@Html.ActionLink("作業項目名選択", "Personal_name", "Home")</p>
+    <p>@Html.ActionLink("チャイルドケア選択", "Child", "Home")</p>
+    <p>@Html.ActionLink("汎用", "Hanyou", "Home")</p>
+    <p>@Html.ActionLink("工番・工程選択", "Kouban_koutei", "Home")</p>
+    <p>@Html.ActionLink("不就業時間入力", "Husyuugyou", "Home")</p>
+    <p>@Html.ActionLink("特作入力", "Tokusa", "Home")</p>
+    <p>@Html.ActionLink("呼出時間入力", "Yobide", "Home")</p>
+    <p>@Html.ActionLink("工番選択", "Kouban", "Home")</p>
+    <p><a href="#" onclick="selectCompany()">会社選択</a></p>
+    <div>パラメータ：<input type="text" id="parameter" value=""/></div>
+    <p>@Html.ActionLink("派遣元選択", "Hakenmoto", "Home")</p>
+    <div id="modalWrapper" />
+</div>
+
+@Styles.Render("~/Content/bootstrap.min.css")
+@Styles.Render("~/Content/style.css")
+@Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/Scripts/popper.js")
+@Scripts.Render("~/Scripts/bootstrap.min.js")
+@Scripts.Render("~/Scripts/kogamen.js")
+

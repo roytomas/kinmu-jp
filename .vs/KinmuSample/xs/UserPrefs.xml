@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{50E6EFB6-D744-44C0-8EB8-06F3D8650BDC}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="KinmuSample/Views/Account/Login.cshtml">
+    <Files>
+      <File FileName="KinmuSample/Controllers/HomeController.cs" Line="26" Column="38" />
+      <File FileName="KinmuSample/Controllers/AccountController.cs" Line="17" Column="1" />
+      <File FileName="KinmuSample/App_Start/RouteConfig.cs" Line="1" Column="1" />
+      <File FileName="KinmuSample/Views/Account/Login.cshtml" Line="32" Column="23" />
+      <File FileName="KinmuSample/Models/UserAccount.cs" Line="1" Column="1" />
+      <File FileName="KinmuSample/Views/Account/Index.cshtml" Line="48" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="KinmuSample" expanded="True">
+            <Node name="KinmuSample" expanded="True">
+              <Node name="App_Start" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Scripts" expanded="True" selected="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.KinmuSample PreferredExecutionTarget="firefox" />
+</Properties>

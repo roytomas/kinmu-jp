@@ -1,0 +1,52 @@
+﻿@model KinmuSample.Areas.Shoukai.Models.ViewModels.KinmuShoukaiSearch
+
+    <h2>@Model.gamenString</h2>
+
+@using (Html.BeginForm("Index", "KinmuShoukai", FormMethod.Get))
+
+{
+    <table class="table table-bordered">
+        @{string disst_1 = Regex.Match(Model.gamenString, @".,1;").Value;}
+        @{
+            if (disst_1 == "")
+            {
+                Session["hyouji"] = 0;
+                @Html.Action("ForSearch", "m_kojin", new { area = "" })
+            }
+            else if (disst_1.Substring(0, 1) == "0")
+            {
+                <tr><td></td><td></td></tr>
+            }
+            else if (disst_1.Substring(0, 1) == "1")
+            {
+            }
+            else if (disst_1.Substring(0, 1) == "2")
+            {
+                Session["hyouji"] = 1;
+                @Html.Action("ForSearch", "m_kojin", new { area = "" })
+            }
+        }
+
+        @Html.Action("ForSearch", "m_bumon", new { area = "" })
+    </table>
+
+    <input type="submit" value="照会" />
+}
+
+<script src="~/Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $('input[type="radio"]').parents("tr").find(".controlbyradio").prop("disabled", true);
+        $('input[type="radio"]').parents("tr").find("option").prop("selected", false);
+        $(":checked").parent().parent().find(".controlbyradio").prop("disabled", false);
+    });
+
+    $(function () {
+        $('input[name="q1"]').click(function () {
+            $('input[name="q1"]').parents("tr").find(".controlbyradio").prop("disabled", true);
+            $('input[name="q1"]').parents("tr").find("option").prop("selected", false);
+            $('input[name="q1"]').parents("tr").find("[type='checkbox']").prop("checked", false);
+            $(":checked").parents("tr").find(".controlbyradio").prop("disabled", false);
+        }).trigger("change");
+    });
+</script>

@@ -1,0 +1,60 @@
+﻿@model KinmuSample.Models.UserAccount
+@{
+    ViewBag.Title = "Login";
+}
+<div class="row container-fluid" style="margin-top: 12%;padding-left:30%;adding-right:30%;">
+    <div class="col-md-6 col-offset-2 text-center" style="background-color: #ccc;border-radius: 15px;padding:2%;">
+  <h2>ログイン</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+           <div class="form-horizontal">
+               @Html.ValidationSummary(true,"",new { @class = "text-danger"})
+                <div class="row">         
+                    <div class="col-md-4 text-right" style="padding-top:6px;">
+                        ユーザー名
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <!-- <input type="text" name="username" /> -->
+                         @Html.EditorFor(model => model.UserName,new {htmlAttributes = new {@class = "form-control"}})
+                         @Html.ValidationMessageFor(model => model.UserName,"",new{@class = "text-danger" })
+                    </div>        
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right" style="padding-top:6px;">
+                        パスワード
+                    </div>
+                    <div class="col-md-8 text-left" style="padding-top:5px;">
+                        <!-- <input type="password" name="password"/> -->
+                         @Html.EditorFor(model => model.Password,new {htmlAttributes = new {@class = "form-control"}})
+                         @Html.ValidationMessageFor(model => model.Password,"",new{@class = "text-danger" })
+                    </div>        
+                </div>
+                 <div class="row">
+                    <div class="col-md-4 text-right" style="padding-top:6px;">
+                    　　　てすとダテ
+                    </div>
+                    <div class="col-md-8 text-left" style="padding-top:5px;">
+                        <!-- <input type="password" name="password"/> -->
+                         @Html.TextBoxFor(model => model.RegistedDate, new { @class = "form-control", type = "datetime-local" })
+                         @Html.ValidationMessageFor(model => model.RegistedDate, "", new { @class = "text-danger" })
+                    </div>        
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center" style="padding-top:5px;">
+                        <input type="submit" value="ログイン" class="btn btn-success"/>
+                    </div>
+                </div>
+            </div>
+       }
+        
+    </div>
+<script>
+ $(function () {//DOM ready code
+    // Get data-annotations that are Marked DataType.DateTime and make them jquery date time pickers
+       $('input[type=datetime]').datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'hh:mm', changeMonth: true, changeYear: true, showAnim: 'slideDown' });
+    })
+</script>
+   
+    
+</div>

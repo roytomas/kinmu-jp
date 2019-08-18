@@ -1,0 +1,23 @@
+﻿@model IEnumerable<KinmuSample.Models.m_bumon>
+
+<tr>
+    <td>
+        <input type="radio" name="q1" value="部門(プルダウン)">部門(プルダウン)
+    </td>
+    <td>
+        @Html.DropDownList(
+             "bumon",
+             new SelectList(Model, "bumon", "bumon"),
+             "部門を選択",
+             new { @class = "form-control controlbyradio"})
+    </td>
+</tr>
+
+<tr>
+    <td><input type="radio" name="q1" value="部門(テキストボックス)">部門(テキストボックス)</td>
+    <td>@Html.TextBox(
+            "bumon",
+            "",
+            new { @class = "form-control controlbyradio"})
+    </td>
+</tr>
