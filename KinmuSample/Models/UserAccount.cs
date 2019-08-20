@@ -15,9 +15,8 @@ namespace KinmuSample.Models
         [DataType(DataType.Password)]
         public string Password{get; set;}
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true,DataFormatString = "{0:MM/dd/yy}")]
-        [Display(Name = "Registed Date")]
-        public DateTime RegistedDate { get; set; }
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true,DataFormatString = "{0:dd/MM/yyyy}")]
+        //public string RegisterDate { get; set; }
     }
 }

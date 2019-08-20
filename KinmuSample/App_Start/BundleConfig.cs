@@ -22,9 +22,35 @@ namespace KinmuSample
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+                   "~/Scripts/jquery-ui-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/datetimepicker").Include(
+                       "~/Scripts/bootstrap.datetimepicker.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/momentjs").Include(
+                           "~/Scripts/moment-with-locales.min.js",
+                           "~/Scripts/moment-range.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // #region bootstrap
+            // bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            //           "~/Scripts/bootstrap.bundle.min.js"));
+            bundles.Add(new StyleBundle("~/Content/bootstrap-css").Include(
+                      "~/Content/bootstrap.min.css"));
+            //#endregion
+
+            #region FontAwesome
+            bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
+                      "~/Content/font-awesome.min.css"));
+            #endregion
+            bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
+                   "~/Content/themes/base/all.css",
+                   "~/Content/themes/base/jquery-ui.min.css"
+                   ));
         }
     }
 }

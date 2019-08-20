@@ -1,3 +1,162 @@
-﻿@{
+﻿@model KinmuSample.Models.m_bumon
+@{
     ViewBag.Title = "Home Page";
+}
+<div class="row container-fluid main-content">
+    <div class="col-md-12 col-offset-2 text-center search-container" >
+        <h2>
+            内部監査用データ出力
+            【検索画面】
+        </h2>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-md-3 text-right">
+                        抽出期間
+                    </div>
+                    <div class="col-md-6 text-left">
+                        <!-- <input type="text" name="username" /> -->
+                        @*@Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "" } })*@
+                        @*@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })*@
+                    </div>
+                    <div class="col-md-3 text-left">
+                        <input type="submit" value="検索" class="btn btn-default" />
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        全社選択
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "" } })*@
+                        @*@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right" >
+                        部門選択
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
+                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
+                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right" >
+                        <input type="button" value="部門選択" class="btn btn-default" />
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
+                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
+                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right" >
+                        <input type="button" value="部門選択" class="btn btn-default" />
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
+                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
+                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right" >
+                        事業所選択
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
+                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
+                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right" >
+                        サブグループ選択
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
+                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
+                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right" >
+                        個人選択
+                    </div>
+                    <div class="col-md-8 text-left" >
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
+                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
+                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        出向者
+                    </div>
+                    <div class="col-md-8 text-left" >
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
+                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
+                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-right" >
+                        ファイル区分
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <!-- <input type="password" name="password"/> -->
+                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
+                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
+                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                @*<div class="row">
+                    <div class="col-md-12 text-center" style="padding-top:5px;">
+                        <input type="submit" value="ログイン" class="btn btn-success" />
+                    </div>
+                </div>*@
+            </div>
+        }
+
+    </div>
+</div>
+@section scripts{
+    <script>
+                //$(function () {
+                //    $('#fromDate').datepicker({
+                //        dateFormat: 'yyyy/dd',
+                //        //minDate: new Date(),
+                //        showOn: "both",
+                //        changeMonth: true,
+                //        changeYear: true,
+                //        showAnim: 'slideDown',
+                //        buttonText: "<i class='fa fa-calendar'></i>"
+                //    });
+                //});
+
+    </script>
 }

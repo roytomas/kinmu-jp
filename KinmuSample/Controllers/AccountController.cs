@@ -8,11 +8,13 @@ namespace KinmuSample.Controllers
 {
     public class AccountController : Controller
     {
-        public ActionResult Index()
+        [AllowAnonymous]
+        public ActionResult Login()
         {
             return View();
         }
 
+        [HttpPost]
         public ActionResult Login(UserAccount account) {
             if (account != null)
             {
