@@ -32,11 +32,14 @@
                 @Html.ActionLink("アプリケーション名", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav pull-right">
                     <li>@Html.ActionLink("ホーム", "Index", "Home")</li>
-                    <li>@Html.ActionLink("詳細", "About", "Home")</li>
-                    <li>@Html.ActionLink("問い合わせ", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("ログアウト", "Login", "Account")</li>
+                    @*<li>@Html.ActionLink("詳細", "About", "Home")</li>
+                    <li>@Html.ActionLink("問い合わせ", "Contact", "Home")</li>*@
+                    @if (Session["username"] != null)
+                    {
+                       <li>@Html.ActionLink("ログアウト", "Login", "Account")</li>
+                    }
                 </ul>
             </div>
         </div>

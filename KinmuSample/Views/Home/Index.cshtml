@@ -1,4 +1,4 @@
-﻿@model KinmuSample.Models.m_bumon
+﻿@model KinmuSample.Models.SearchViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -15,10 +15,17 @@
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="row">
-                    <div class="col-md-3 text-right">
+                    <div class="col-md-3 text-left lefttext-align">
                         抽出期間
                     </div>
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-3 text-left ">
+                        @Html.EditorFor(model => model.StartDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })
+                        <!-- <input type="text" name="username" /> -->
+                        @*@Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "" } })*@
+                        @*@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })*@
+                    </div>
+                    <div class="col-md-3 text-left">
+                        @Html.EditorFor(model => model.EndDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })
                         <!-- <input type="text" name="username" /> -->
                         @*@Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "" } })*@
                         @*@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })*@
@@ -29,10 +36,11 @@
                 </div>
                 <hr />
                 <div class="row">
-                    <div class="col-md-4 text-right">
-                        全社選択
+                    <div class="col-md-3 text-left lefttext-align">
+                        @Html.RadioButtonFor(model => model.IsCompanyWideSelected, new { htmlAttributes = new { @class = "" } })
+                        @Html.LabelFor(model => model.IsCompanyWideSelected,  new { @class = "control-label" })
                     </div>
-                    <div class="col-md-8 text-left">
+                    <div class="col-md-9 text-left">
                         <!-- <input type="password" name="password"/> -->
                         @*@Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "" } })*@
                         @*@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })*@
@@ -40,22 +48,30 @@
                 </div>
                 <hr />
                 <div class="row">
-                    <div class="col-md-4 text-right" >
-                        部門選択
-                    </div>
-                    <div class="col-md-8 text-left">
-                        <!-- <input type="password" name="password"/> -->
-                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
-                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
-                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
-                    </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-4 text-right" >
+                    <div class="col-md-3 text-left lefttext-align">
+                        @Html.RadioButtonFor(model => model.IsDepartmentSelected, new { @class = "" })
                         <input type="button" value="部門選択" class="btn btn-default" />
                     </div>
+                    <div class="col-md-3 text-left">
+                        @Html.TextBoxFor(model => model.DepartmentCode, "", new { @id = "deptCode" })
+                    </div>
+                    <div class="col-md-3 text-left">
+                        @Html.TextBoxFor(model => model.WorkgroupCode, "", new { @id = "wrkgrpCode" })
+                    </div>
+                    <div class="col-md-3 text-left">
+                        @Html.LabelFor(model => model.DepartmentName, "", new { @class = "control-label",@id ="deptName"  })
+                        <br />
+                        @Html.EditorFor(model => model.IsIncludeSubDivision, new { @class = "" })
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-3 text-left lefttext-align">
+                        @Html.RadioButtonFor(model => model.IsOfficeSelected, new { htmlAttributes = new { @class = "" } })
+                        @Html.LabelFor(model => model.IsOfficeSelected,  new { @class = "control-label"  })
+                    </div>
                     <div class="col-md-8 text-left">
+                        @Html.DropDownListFor(model => model.DepartmentCode, new SelectList(@ViewBag.Departments, "id", "bumon"), "- Please Select -", new { @class = "dropdown-style" })
                         <!-- <input type="password" name="password"/> -->
                         @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
                         @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
@@ -64,11 +80,12 @@
                 </div>
                 <hr />
                 <div class="row">
-                    <div class="col-md-4 text-right" >
-                        <input type="button" value="部門選択" class="btn btn-default" />
+                    <div class="col-md-3 text-left lefttext-align">
+                        @Html.RadioButtonFor(model => model.IsSubgroupSelected, new { htmlAttributes = new { @class = "" } })
+                        @Html.LabelFor(model => model.IsSubgroupSelected,  new { @class = "control-label" })
                     </div>
                     <div class="col-md-8 text-left">
-                        <!-- <input type="password" name="password"/> -->
+                        @Html.DropDownListFor(model => model.DepartmentCode, new SelectList(@ViewBag.Subgroups, "id", "bumon"), "- Please Select -", new { @class = "dropdown-style" })
                         @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
                         @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
                         @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
@@ -76,19 +93,7 @@
                 </div>
                 <hr />
                 <div class="row">
-                    <div class="col-md-4 text-right" >
-                        事業所選択
-                    </div>
-                    <div class="col-md-8 text-left">
-                        <!-- <input type="password" name="password"/> -->
-                        @*@Html.EditorFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "datepicker" } })*@
-                        @*@Html.TextBoxFor(model => model.RegisterDate, "{0:dd/MM/yyyy}", new {  @class = "datepicker" })*@
-                        @*@Html.ValidationMessageFor(model => model.RegisterDate, "", new { @class = "text-danger" })*@
-                    </div>
-                </div>
-                <hr />
-                <div class="row">
-                    <div class="col-md-4 text-right" >
+                    <div class="col-md-3 text-left lefttext-align" >
                         サブグループ選択
                     </div>
                     <div class="col-md-8 text-left">
@@ -100,7 +105,7 @@
                 </div>
                 <hr />
                 <div class="row">
-                    <div class="col-md-4 text-right" >
+                    <div class="col-md-2 text-left lefttext-align" >
                         個人選択
                     </div>
                     <div class="col-md-8 text-left" >
@@ -112,7 +117,7 @@
                 </div>
                 <hr />
                 <div class="row">
-                    <div class="col-md-4 text-right">
+                    <div class="col-md-2 text-left lefttext-align">
                         出向者
                     </div>
                     <div class="col-md-8 text-left" >
@@ -124,7 +129,7 @@
                 </div>
                 <hr />
                 <div class="row">
-                    <div class="col-md-4 text-right" >
+                    <div class="col-md-4 text-left lefttext-align" >
                         ファイル区分
                     </div>
                     <div class="col-md-8 text-left">
@@ -146,17 +151,16 @@
 </div>
 @section scripts{
     <script>
-                //$(function () {
-                //    $('#fromDate').datepicker({
-                //        dateFormat: 'yyyy/dd',
-                //        //minDate: new Date(),
-                //        showOn: "both",
-                //        changeMonth: true,
-                //        changeYear: true,
-                //        showAnim: 'slideDown',
-                //        buttonText: "<i class='fa fa-calendar'></i>"
-                //    });
-                //});
+                $(function () {
+                    $('.datepicker').datepicker({
+                        dateFormat: 'yy/mm',
+                        //minDate: new Date(),
+                        showOn: "both",
+                        showAnim: 'slideDown',
+                        buttonText: "<i class='fa fa-calendar'></i>"
+                    });
+                   
+                });
 
     </script>
 }

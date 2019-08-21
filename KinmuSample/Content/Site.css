@@ -24,12 +24,23 @@ textarea {
 }
 
 /*custom css*/
+hr{
+    margin-bottom:8px;
+    margin-top:8px;
+}
 .main-content {
     margin-top: 12%;
-    padding-left:15%;
+    padding-left: 15%
 }
-    .main-content .search-container {
-        border-radius: 15px;
-        padding:2%;
-        border:1px solid #ccc;
-    }
+.main-content .search-container {
+    border-radius: 15px;
+    padding:4%;
+    border:1px solid #ccc;
+}
+.main-content .dropdown-style {
+    width: 30%;
+    height: 30px;
+}
+.main-content .lefttext-align{
+    padding-left:8%;
+}
